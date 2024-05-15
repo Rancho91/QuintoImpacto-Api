@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Notificaciones de la semana</title>
+    <style>
+        /* Estilos CSS para dar formato al correo electrónico */
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f4f4f4;
+            margin: 0;
+            padding: 20px;
+        }
+        .container {
+            max-width: 600px;
+            margin: auto;
+            background-color: #fff;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+        h1 {
+            color: #333;
+        }
+        .notification {
+            margin-bottom: 20px;
+            padding: 10px;
+            background-color: #f9f9f9;
+            border-radius: 5px;
+        }
+        .notification h2 {
+            margin-top: 0;
+            color: #007bff;
+        }
+        .notification p {
+            margin: 5px 0;
+            color: #555;
+        }
+    </style>
+</head>
+<body>
+<div class="container">
+    <h1>Notificaciones de la semana</h1>
+    <div class="notification" th:each="supplier : ${emailDtoList}">
+        <h2 th:text="${supplier.name}"></h2>
+        <p th:text="${supplier.city}">Ciudad:</p>
+        <p th:text="${supplier.category.category}">Categoría:</p>
+        <p th:text="${supplier.shortDescription}">Descripcion: </p>
+    </div>
+</div>
+</body>
+</html>
